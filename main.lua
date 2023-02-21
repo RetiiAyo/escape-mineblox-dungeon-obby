@@ -15,9 +15,10 @@ while true do
     local Destination = getPath()
     local PathfindingService = game:GetService("PathfindingService")
     local LocalPlayer = game.Players.LocalPlayer
+    local Character = Player.Character or Player.CharacterAdded:Wait()
 
     local path = PathfindingService:CreatePath({ WaypointSpacing = 1, AgentRadius = 0.1, AgentCanJump = true })
-    path:ComputeAsync(LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,3,0), Destination.Position)
+    path:ComputeAsync(Character.HumanoidRootPart.Position - Vector3.new(0,3,0), Destination.Position)
     local Waypoints = path:GetWaypoints()
 
     if path.Status ~= Enum.PathStatus.NoPath then
@@ -37,9 +38,9 @@ while true do
         end
 
         for _, Waypoint in pairs(Waypoints) do
-            if LocalPlayer.Character.HumanoidRootPart.Anchored == false then
-                LocalPlayer.Character.Humanoid:MoveTo(Waypoint.Position)
-                LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
+            if Character.HumanoidRootPart.Anchored == false then
+                Character.Humanoid:MoveTo(Waypoint.Position)
+                Character.Humanoid.MoveToFinished:Wait()
             end
         end
     end
