@@ -2,6 +2,7 @@ local Folder = Instance.new("Folder", game.Workspace)
 Folder.Name = "waypoints_000"
 local part = Instance.new("Part", game.Workspace)
 part.Name = "waypoint_000"
+part.Position = Vector3.new(1080.58837890625, 376.7653503417969, -405.358001708944)
 
 function getPath()
     local Part
