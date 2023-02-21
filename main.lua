@@ -13,7 +13,7 @@ end
 while true do
 
     local Destination = getPath()
-    local PathfindingService = game:getService("PathfindingService")
+    local PathfindingService = game:GetService("PathfindingService")
     local LocalPlayer = game.Players.LocalPlayer
 
     local path = PathfindingService:CreatePath({ WaypointSpacing = 1, AgentRadius = 0.1, AgentCanJump = true })
