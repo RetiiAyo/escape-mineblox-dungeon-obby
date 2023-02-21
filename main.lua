@@ -14,6 +14,7 @@ while true do
 
     local Destination = getPath()
     local PathfindingService = game:getService("PathfindingService")
+    local LocalPlayer = game.Players.LocalPlayer
 
     local path = PathfindingService:CreatePath({ WaypointSpacing = 1, AgentRadius = 0.1, AgentCanJump = true })
     path:ComputeAsync(LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,3,0), Destination.Position)
